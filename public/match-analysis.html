@@ -1,0 +1,392 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Maç Analizi</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 20px;
+            background: linear-gradient(135deg, #2d1b4d 0%, #1a1a2e 100%);
+            color: #fff;
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        .teams {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 30px;
+            font-size: 24px;
+            font-weight: bold;
+            color: #b19cd9;
+        }
+
+        .team {
+            flex: 1;
+            text-align: center;
+            padding: 20px;
+            background: rgba(138, 109, 204, 0.1);
+            border-radius: 10px;
+            margin: 0 10px;
+        }
+
+        .score-tables {
+            display: flex;
+            justify-content: space-between;
+            gap: 20px;
+        }
+
+        .score-table {
+            flex: 1;
+            background: rgba(138, 109, 204, 0.1);
+            border-radius: 10px;
+            padding: 20px;
+        }
+
+        .table-title {
+            text-align: center;
+            font-size: 18px;
+            color: #b19cd9;
+            margin-bottom: 15px;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        th, td {
+            border: 1px solid rgba(177, 156, 217, 0.3);
+            padding: 8px;
+            text-align: center;
+        }
+
+        th {
+            background: rgba(138, 109, 204, 0.2);
+            color: #b19cd9;
+        }
+
+        td {
+            color: #fff;
+        }
+
+        .period-row {
+            background: rgba(138, 109, 204, 0.15);
+        }
+
+        .period-label {
+            font-weight: bold;
+            color: #b19cd9;
+        }
+
+        .status {
+            text-align: center;
+            margin: 20px 0;
+            padding: 10px;
+            background: rgba(138, 109, 204, 0.1);
+            border-radius: 10px;
+            color: #b19cd9;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="teams">
+            <div class="team" id="homeTeam">Ev Sahibi</div>
+            <div class="team" id="awayTeam">Deplasman</div>
+        </div>
+
+        <div class="status" id="matchStatus">Maç Durumu: -</div>
+
+        <div class="score-tables">
+            <div class="score-table">
+                <div class="table-title" id="homeTeamTitle">Ev Sahibi Sayıları</div>
+                <table id="homeTeamTable">
+                    <thead>
+                        <tr>
+                            <th>Dakika</th>
+                            <th>1</th>
+                            <th>2</th>
+                            <th>3</th>
+                            <th>4</th>
+                            <th>5</th>
+                            <th>6</th>
+                            <th>7</th>
+                            <th>8</th>
+                            <th>9</th>
+                            <th>10</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <!-- Periyot satırları JavaScript ile doldurulacak -->
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="score-table">
+                <div class="table-title" id="awayTeamTitle">Deplasman Sayıları</div>
+                <table id="awayTeamTable">
+                    <thead>
+                        <tr>
+                            <th>Dakika</th>
+                            <th>1</th>
+                            <th>2</th>
+                            <th>3</th>
+                            <th>4</th>
+                            <th>5</th>
+                            <th>6</th>
+                            <th>7</th>
+                            <th>8</th>
+                            <th>9</th>
+                            <th>10</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <!-- Periyot satırları JavaScript ile doldurulacak -->
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <!-- 40 ile çarpılmış sayılar için yeni tablolar -->
+        <div class="score-tables" style="margin-top: 30px;">
+            <div class="score-table">
+                <div class="table-title" id="homeTeamTitle40">Ev Sahibi Sayıları (x40)</div>
+                <table id="homeTeamTable40">
+                    <thead>
+                        <tr>
+                            <th>Dakika</th>
+                            <th>1</th>
+                            <th>2</th>
+                            <th>3</th>
+                            <th>4</th>
+                            <th>5</th>
+                            <th>6</th>
+                            <th>7</th>
+                            <th>8</th>
+                            <th>9</th>
+                            <th>10</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <!-- Periyot satırları JavaScript ile doldurulacak -->
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="score-table">
+                <div class="table-title" id="awayTeamTitle40">Deplasman Sayıları (x40)</div>
+                <table id="awayTeamTable40">
+                    <thead>
+                        <tr>
+                            <th>Dakika</th>
+                            <th>1</th>
+                            <th>2</th>
+                            <th>3</th>
+                            <th>4</th>
+                            <th>5</th>
+                            <th>6</th>
+                            <th>7</th>
+                            <th>8</th>
+                            <th>9</th>
+                            <th>10</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <!-- Periyot satırları JavaScript ile doldurulacak -->
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <!-- Toplam sayılar için tek tablo (ortada) -->
+        <div style="display: flex; justify-content: center; margin-top: 30px;">
+            <div class="score-table" style="max-width: 600px;">
+                <div class="table-title" id="totalTitle">Toplam Sayılar (x40)</div>
+                <table id="totalTable">
+                    <thead>
+                        <tr>
+                            <th>Dakika</th>
+                            <th>1</th>
+                            <th>2</th>
+                            <th>3</th>
+                            <th>4</th>
+                            <th>5</th>
+                            <th>6</th>
+                            <th>7</th>
+                            <th>8</th>
+                            <th>9</th>
+                            <th>10</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <!-- Periyot satırları JavaScript ile doldurulacak -->
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const urlParams = new URLSearchParams(window.location.search);
+        const matchId = urlParams.get('matchId');
+        const status = urlParams.get('status');
+
+        // Tabloları oluştur
+        function createTables() {
+            const periods = ['1st Quarter', '2nd Quarter', '3rd Quarter', '4th Quarter'];
+            const homeTable = document.getElementById('homeTeamTable').getElementsByTagName('tbody')[0];
+            const awayTable = document.getElementById('awayTeamTable').getElementsByTagName('tbody')[0];
+            const homeTable40 = document.getElementById('homeTeamTable40').getElementsByTagName('tbody')[0];
+            const awayTable40 = document.getElementById('awayTeamTable40').getElementsByTagName('tbody')[0];
+            const totalTable = document.getElementById('totalTable').getElementsByTagName('tbody')[0];
+
+            periods.forEach(period => {
+                // Orijinal tablolar için satırlar
+                const homeRow = homeTable.insertRow();
+                const awayRow = awayTable.insertRow();
+                
+                // 40 ile çarpılmış tablolar için satırlar
+                const homeRow40 = homeTable40.insertRow();
+                const awayRow40 = awayTable40.insertRow();
+                
+                // Toplam tablo için satır
+                const totalRow = totalTable.insertRow();
+                
+                homeRow.className = 'period-row';
+                awayRow.className = 'period-row';
+                homeRow40.className = 'period-row';
+                awayRow40.className = 'period-row';
+                totalRow.className = 'period-row';
+
+                const homePeriodCell = homeRow.insertCell();
+                const awayPeriodCell = awayRow.insertCell();
+                const homePeriodCell40 = homeRow40.insertCell();
+                const awayPeriodCell40 = awayRow40.insertCell();
+                const totalPeriodCell = totalRow.insertCell();
+                
+                homePeriodCell.className = 'period-label';
+                awayPeriodCell.className = 'period-label';
+                homePeriodCell40.className = 'period-label';
+                awayPeriodCell40.className = 'period-label';
+                totalPeriodCell.className = 'period-label';
+                
+                homePeriodCell.textContent = period;
+                awayPeriodCell.textContent = period;
+                homePeriodCell40.textContent = period;
+                awayPeriodCell40.textContent = period;
+                totalPeriodCell.textContent = period;
+
+                // Her periyot için 10 dakika hücresi oluştur
+                for (let i = 0; i < 10; i++) {
+                    homeRow.insertCell();
+                    awayRow.insertCell();
+                    homeRow40.insertCell();
+                    awayRow40.insertCell();
+                    totalRow.insertCell();
+                }
+            });
+        }
+
+        // Sayfa yüklendiğinde tabloları oluştur
+        createTables();
+
+        let lastHomeScore = 0;
+        let lastAwayScore = 0;
+        let currentPeriod = 1;
+        let currentMinute = 1;
+
+        function updateMatchStatus() {
+            fetch(`/match-status/${matchId}`)
+                .then(response => response.json())
+                .then(data => {
+                    // Takım isimlerini güncelle
+                    document.getElementById('homeTeam').textContent = data.homeTeam;
+                    document.getElementById('awayTeam').textContent = data.awayTeam;
+                    document.getElementById('homeTeamTitle').textContent = `${data.homeTeam} Sayıları`;
+                    document.getElementById('awayTeamTitle').textContent = `${data.awayTeam} Sayıları`;
+                    document.getElementById('homeTeamTitle40').textContent = `${data.homeTeam} Sayıları (x40)`;
+                    document.getElementById('awayTeamTitle40').textContent = `${data.awayTeam} Sayıları (x40)`;
+
+                    // Maç durumunu güncelle
+                    document.getElementById('matchStatus').textContent = `Maç Durumu: ${data.status}`;
+
+                    // Eğer maç devam ediyorsa ve periyot bilgisi varsa
+                    if (data.period && data.period.includes('Quarter')) {
+                        const periodNumber = parseInt(data.period);
+                        if (periodNumber !== currentPeriod) {
+                            currentPeriod = periodNumber;
+                            currentMinute = 1;
+                        }
+
+                        // Skorları güncelle
+                        const homeScore = parseInt(data.homeScore) || 0;
+                        const awayScore = parseInt(data.awayScore) || 0;
+
+                        // Dakika başına atılan sayıları hesapla
+                        const homePoints = homeScore - lastHomeScore;
+                        const awayPoints = awayScore - lastAwayScore;
+
+                        if (homePoints > 0 || awayPoints > 0) {
+                            // İlgili hücreyi güncelle - orijinal tablolar
+                            const homeCell = document.querySelector(`#homeTeamTable tbody tr:nth-child(${currentPeriod}) td:nth-child(${currentMinute + 1})`);
+                            const awayCell = document.querySelector(`#awayTeamTable tbody tr:nth-child(${currentPeriod}) td:nth-child(${currentMinute + 1})`);
+
+                            // İlgili hücreyi güncelle - 40 ile çarpılmış tablolar
+                            const homeCell40 = document.querySelector(`#homeTeamTable40 tbody tr:nth-child(${currentPeriod}) td:nth-child(${currentMinute + 1})`);
+                            const awayCell40 = document.querySelector(`#awayTeamTable40 tbody tr:nth-child(${currentPeriod}) td:nth-child(${currentMinute + 1})`);
+
+                            // İlgili hücreyi güncelle - toplam tablo
+                            const totalCell = document.querySelector(`#totalTable tbody tr:nth-child(${currentPeriod}) td:nth-child(${currentMinute + 1})`);
+
+                            if (homeCell) homeCell.textContent = homePoints;
+                            if (awayCell) awayCell.textContent = awayPoints;
+                            
+                            // 40 ile çarpılmış değerleri güncelle
+                            if (homeCell40) homeCell40.textContent = homePoints * 40;
+                            if (awayCell40) awayCell40.textContent = awayPoints * 40;
+                            
+                            // Toplam değeri güncelle (40 ile çarpılmış sayıların toplamı)
+                            if (totalCell) totalCell.textContent = (homePoints * 40) + (awayPoints * 40);
+
+                            currentMinute++;
+                            if (currentMinute > 10) currentMinute = 1;
+                        }
+
+                        lastHomeScore = homeScore;
+                        lastAwayScore = awayScore;
+                    }
+                })
+                .catch(error => console.error('Error:', error));
+        }
+
+        // Her 10 saniyede bir güncelle
+        updateMatchStatus();
+        setInterval(updateMatchStatus, 60000); // 60000 ms = 1 dakika
+
+        // Dakika başında skorları almak için zamanlayıcı
+        function scheduleNextMinute() {
+            const now = new Date();
+            const nextMinute = new Date(now.getFullYear(), now.getMonth(), now.getDate(), now.getHours(), now.getMinutes() + 1, 0, 0);
+            const delay = nextMinute - now;
+            
+            setTimeout(() => {
+                updateMatchStatus();
+                scheduleNextMinute();
+            }, delay);
+        }
+
+        // İlk dakika başını planla
+        scheduleNextMinute();
+    </script>
+</body>
+</html> 
